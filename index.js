@@ -20,7 +20,7 @@ bot.on("message", (message) => {
                     if (!message.guild.voiceConnection) {
                         message.member.voiceChannel.join()
                             .then(connection => {
-                                const dispatcher = connection.playFile('./WatchYourProfanity2.mp3')
+                                dispatcher = connection.playFile('./WatchYourProfanity2.mp3')
                                 message.channel.send(message.author + " " + "Please!" + "https://i.makeagif.com/media/7-24-2018/CwWRql.gif")
                                 setTimeout(() => {
                                     message.guild.voiceConnection.disconnect()
