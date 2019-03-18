@@ -41,4 +41,4 @@ bot.on("ready", () => {
 })
 
 
-bot.login("NTU1NTQyNDc3MjgxNjg5NjIx.D2u3pw.wujsuGVpNVBctzPUcCESWSdnGqY")
+bot.login(process.env.BOT_TOKEN)
