@@ -19,13 +19,16 @@ bot.on("message", (message) => {
                 if (message.member.voiceChannel) {
                     if (!message.guild.voiceConnection) {
                         message.member.voiceChannel.join()
-                            .then(connection => 
+                            .then(connection => {
                                 message.channel.send(message.author + " " + "Please!" + "https://i.makeagif.com/media/7-24-2018/CwWRql.gif")
                                 setTimeout(() => {
                                     message.guild.voiceConnection.disconnect()
                                 }, 2000)
-                            return connection.playFile('./WatchYourProfanity2.mp3')
+                                return connection.playFile('./WatchYourProfanity2.mp3')
+                            }).then(dispatcher => {
+                                dispatcher.on("error", console.error)
                             })
+                            .catch(console.error)
                     }
                 } else {
                     message.channel.send(message.author + " " + "PLease!" + "https://i.makeagif.com/media/7-24-2018/CwWRql.gif")
